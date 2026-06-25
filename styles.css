@@ -1,0 +1,319 @@
+/* =========================================================
+   MENTE SANA — Hoja de estilos principal
+   Paleta morada + lavanda, tipografía Poppins / Inter
+   ========================================================= */
+
+:root {
+  --ms-purple: #7B2CBF;
+  --ms-purple-dark: #5E1B9E;
+  --ms-purple-light: #9D4EDD;
+  --ms-lavender: #ECEAF4;
+  --ms-lavender-soft: #F4F2FA;
+  --ms-band: #AEB3D6;
+  --ms-bg: #ECEAF3;
+  --ms-card: #ffffff;
+  --ms-text: #20243a;
+  --ms-muted: #6b7280;
+  --ms-shadow: 0 12px 35px rgba(94, 27, 158, .12);
+  --ms-shadow-sm: 0 6px 18px rgba(94, 27, 158, .10);
+}
+
+* { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--ms-text);
+  background: var(--ms-bg);
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, .display-title, .navbar-brand {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* ---------- Barra superior lavanda ---------- */
+.ms-topband {
+  height: 14px;
+  background: var(--ms-band);
+}
+
+/* ---------- Navbar ---------- */
+.navbar.ms-nav {
+  background: #ffffff;
+  box-shadow: 0 2px 14px rgba(94, 27, 158, .07);
+  padding-top: .7rem;
+  padding-bottom: .7rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.55rem;
+  color: var(--ms-purple) !important;
+  letter-spacing: .3px;
+}
+
+.ms-nav .nav-link {
+  color: var(--ms-text) !important;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 .35rem;
+  position: relative;
+  transition: color .2s ease;
+}
+
+.ms-nav .nav-link:hover,
+.ms-nav .nav-link.active {
+  color: var(--ms-purple) !important;
+}
+
+.ms-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  height: 2px; width: 0;
+  background: var(--ms-purple);
+  transition: width .25s ease;
+}
+.ms-nav .nav-link:hover::after,
+.ms-nav .nav-link.active::after { width: 100%; }
+
+/* ---------- Botones ---------- */
+.btn-ms {
+  background: var(--ms-purple);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  padding: .6rem 1.6rem;
+  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 16px rgba(123, 44, 191, .35);
+}
+.btn-ms:hover {
+  background: var(--ms-purple-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(123, 44, 191, .42);
+}
+
+.btn-ms-soft {
+  background: var(--ms-purple);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: .5rem 1.4rem;
+  font-weight: 600;
+  transition: background .2s ease, transform .15s ease;
+}
+.btn-ms-soft:hover { background: var(--ms-purple-dark); color:#fff; transform: translateY(-2px); }
+
+/* ---------- Hero principal ---------- */
+.ms-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(120deg, rgba(123,44,191,.55), rgba(157,78,221,.30)),
+    linear-gradient(180deg, #cfd6ef 0%, #b9c2e6 55%, #e8d8c8 100%);
+  overflow: hidden;
+}
+.ms-hero::after {
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(circle at 20% 90%, rgba(255,255,255,.25), transparent 40%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,.20), transparent 45%);
+}
+.ms-hero .container { position: relative; z-index: 2; }
+.ms-hero h1 {
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: #1c1c2b;
+  text-shadow: 0 2px 12px rgba(255,255,255,.4);
+}
+.ms-hero .lead {
+  color: #ffffff;
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  text-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+
+/* Tarjetas flotantes del hero */
+.ms-floatcard {
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(6px);
+  border-radius: 22px;
+  padding: 1.8rem;
+  box-shadow: var(--ms-shadow);
+}
+.ms-floatcard h5 { font-weight: 700; color: var(--ms-text); }
+
+.ms-avatar {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  margin: 0 auto;
+  display:block;
+  background: linear-gradient(135deg, var(--ms-purple-light), var(--ms-purple));
+}
+.ms-stars { color: #f6b40a; font-size: 1.1rem; letter-spacing: 2px; }
+
+/* ---------- Cabecera de sección interna ---------- */
+.ms-pagehead {
+  text-align: center;
+  padding: 2.6rem 1rem 1.2rem;
+}
+.ms-pagehead h2 { font-weight: 700; color: var(--ms-text); }
+.ms-pagehead p { color: var(--ms-muted); margin-bottom: 0; }
+
+/* ---------- Tarjetas genéricas ---------- */
+.ms-card {
+  background: var(--ms-card);
+  border-radius: 20px;
+  box-shadow: var(--ms-shadow-sm);
+  overflow: hidden;
+  height: 100%;
+  transition: transform .2s ease, box-shadow .2s ease;
+  border: 1px solid rgba(123,44,191,.06);
+}
+.ms-card:hover { transform: translateY(-6px); box-shadow: var(--ms-shadow); }
+
+/* Imagen-placeholder con degradado + icono */
+.ms-imgph {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--ms-purple-light), var(--ms-purple));
+}
+.ms-imgph.alt1 { background: linear-gradient(135deg, #9d8df1, #6a5acd); }
+.ms-imgph.alt2 { background: linear-gradient(135deg, #f0a6c9, #b15fa8); }
+.ms-imgph.alt3 { background: linear-gradient(135deg, #7dd0c4, #3a9b8f); }
+.ms-imgph.alt4 { background: linear-gradient(135deg, #f7b267, #e98a3c); }
+
+/* ---------- Sección Nosotros ---------- */
+.ms-feature-icon {
+  width: 120px; height: 120px; flex: 0 0 120px;
+  border-radius: 16px;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size: 2.4rem;
+  background: linear-gradient(135deg, var(--ms-purple-light), var(--ms-purple));
+}
+
+/* ---------- Sección Servicios (fondo oscuro) ---------- */
+.ms-services {
+  background:
+    linear-gradient(180deg, rgba(20,15,35,.85), rgba(20,15,35,.85)),
+    linear-gradient(135deg, #3b2a55, #1d1530);
+  padding: 3rem 0 4rem;
+}
+.ms-services h2 { color:#fff; }
+.ms-service-card {
+  background: rgba(255,255,255,.92);
+  border-radius: 22px;
+  padding: 1.4rem;
+  height: 100%;
+  box-shadow: var(--ms-shadow);
+}
+.ms-service-card .ms-imgph { border-radius: 14px; height: 170px; }
+
+/* ---------- Formularios ---------- */
+.ms-form-card {
+  background: rgba(255,255,255,.65);
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow: var(--ms-shadow-sm);
+}
+.form-control, .form-select {
+  border-radius: 12px;
+  padding: .8rem 1rem;
+  border: 1px solid #e2def0;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--ms-purple-light);
+  box-shadow: 0 0 0 .2rem rgba(123,44,191,.15);
+}
+
+/* ---------- Mapa / ubicación ---------- */
+.ms-map {
+  border-radius: 18px;
+  min-height: 320px;
+  background:
+    radial-gradient(circle at 70% 45%, rgba(214,40,57,.0) 0 18px, transparent 19px),
+    linear-gradient(135deg, #f3d9c0, #e8c4a8 60%, #cfe2f3);
+  position: relative;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: var(--ms-shadow-sm);
+}
+.ms-map .pin {
+  font-size: 3.2rem; color: #d62839;
+  filter: drop-shadow(0 6px 6px rgba(0,0,0,.25));
+}
+
+/* ---------- Agendar cita ---------- */
+.ms-appoint {
+  background:
+    linear-gradient(180deg, rgba(20,20,35,.78), rgba(20,20,35,.78)),
+    linear-gradient(135deg, #2c2640, #14101f);
+  padding: 2.4rem 0 4rem;
+}
+.ms-appoint h2, .ms-appoint .subtitle { color:#fff; }
+.ms-panel {
+  background:#fff;
+  border-radius: 18px;
+  padding: 1.6rem;
+  height: 100%;
+  box-shadow: var(--ms-shadow);
+}
+.ms-panel h4 { color: var(--ms-purple); font-weight:700; text-align:center; }
+
+/* Calendario */
+.ms-cal-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:.4rem; }
+.ms-cal-head .month { font-weight:700; font-size:1.25rem; text-align:center; flex:1; }
+.ms-cal-nav { background:none; border:none; color:var(--ms-text); font-size:1.4rem; cursor:pointer; }
+.ms-cal-year { text-align:center; color:var(--ms-muted); margin-bottom:.6rem; }
+table.ms-cal { width:100%; text-align:center; border-collapse:collapse; }
+table.ms-cal th { color:var(--ms-text); padding:.35rem 0; font-weight:700; }
+table.ms-cal td { padding:.35rem 0; cursor:pointer; border-radius:8px; transition: background .15s ease; }
+table.ms-cal td:hover:not(.empty) { background: var(--ms-lavender); }
+table.ms-cal td.sun { color:#d62839; }
+table.ms-cal td.selected { background: var(--ms-purple); color:#fff; font-weight:700; }
+
+.ms-check { font-size: 5rem; color:#22c55e; }
+
+/* Confirmación oculta por defecto */
+#confirmBox { display:none; }
+
+/* ---------- Footer ---------- */
+.ms-footer {
+  background: #1d1730;
+  color: #d6d2e6;
+  padding: 2.4rem 0 1.4rem;
+}
+.ms-footer a { color:#cbb8ee; text-decoration:none; }
+.ms-footer a:hover { color:#fff; }
+.ms-footer .brand { color:#fff; font-weight:700; font-family:'Poppins',sans-serif; font-size:1.3rem; }
+
+/* ---------- Utilidades ---------- */
+.section { padding: 3rem 0; }
+.text-purple { color: var(--ms-purple) !important; }
+.bg-lav { background: var(--ms-lavender-soft); }
+
+/* Animación de aparición */
+.reveal { opacity:0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.show { opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto; }
+  .reveal { transition:none; opacity:1; transform:none; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 991px) {
+  .ms-hero { min-height: auto; padding: 3rem 0; }
+  .ms-feature-icon { width:90px; height:90px; flex-basis:90px; font-size:1.9rem; }
+}
+
+.card-img-top{height:220px;object-fit:cover;width:100%;}
